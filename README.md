@@ -1,4 +1,6 @@
-oolite-oxp--Targeter
+Oolite-OXPs
 ====================
 
-Oolite OXPs: Targeter
+Oolite OXPs maintained by timer
+
+see http://wiki.alioth.net/index.php/User:Timer

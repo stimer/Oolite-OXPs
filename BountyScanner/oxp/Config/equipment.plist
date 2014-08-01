@@ -1,0 +1,21 @@
+(
+        (
+                9, 18500, "Bounty Scanner",
+                "EQ_FRAME_BOUNTY_SCANNER",
+                "DTP Design Agency Device that retrieves target bounty Information.",
+                {
+                        "available_to_all" = 1;
+                        "requires_equipment" = ("EQ_SCANNER_SHOW_MISSILE_TARGET");
+                        "incompatible_with_equipment" = ("EQ_DUMMY");
+                }
+        ),
+        (
+                9, 150, "Sell Bounty Scanner",
+                "EQ_FRAME_BOUNTY_SCANNER_REMOVER",
+                "Sell Bounty Scanner. You get a 60% refund.",
+                {
+                        "available_to_all" = 1;
+                        "requires_equipment" = "EQ_FRAME_BOUNTY_SCANNER";
+                }
+        )
+)

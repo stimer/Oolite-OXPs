@@ -1,0 +1,76 @@
+(
+	( /* DFT core equipment */
+		11, 620000, "Duplex Fuel Tank - takes up 8t of cargo space",
+		"EQ_DUPLEX_FUEL_TANK",
+		"Additional fuel tank (3LY) with duplex interaction with main tank. Improved technology allows not only to pump the fuel in the main tank, but also to make the opposite action, for example, in/after skimming process.",
+		{
+			available_to_all     = true;
+			available_to_NPCs    = false;
+		    visible              = false;
+			requires_cargo_space = 8;
+			damage_probability   = 0;
+			requires_equipment   = "EQ_FUEL_SCOOPS";
+		}
+	),
+	(
+		11, 4200, "Sell Duplex Fuel Tank - reclaims 8t of cargo space",
+		"EQ_DUPLEX_FUEL_TANK_REMOVAL",
+		"Sell DFT. You get a 70% refund.",
+		{
+			available_to_all   = true;
+			available_to_NPCs  = false;
+			requires_equipment = "EQ_DUPLEX_FUEL_TANK";
+		}
+	),
+	(
+		1, 75, "Refill 1LY in additional DFT",
+		"EQ_DUPLEX_FUEL_TANK_REFILL",
+		"1LY Liquified Quirium Gas refill for additional Duplex Fuel Tank.",
+		{
+			available_to_all   = true;
+			available_to_NPCs  = false;
+			requires_equipment = "EQ_DUPLEX_FUEL_TANK";
+			incompatible_with_equipment = "EQ_DUPLEX_FUEL_TANK_STATE_3"; // have to point to max state
+			visible            = false;
+		}
+	),
+	( /* DFT Controller - instance of prime equipment */
+		99, 10, "DFT",
+		"EQ_DUPLEX_FUEL_TANK_CTRL",
+		"DFT_CTRL",
+		{
+			available_to_all   = true;
+			available_to_NPCs  = false;
+			visible            = false;
+			script             = "eq_duplex_fuel_tank.js";
+			damage_probability = 0;
+		}
+	),
+
+	/* DFT states */
+
+	( /* Empty DFT */
+		99, 10, "Duplex Fuel Tank (empty)", "EQ_DUPLEX_FUEL_TANK_STATE_0", "DFT__STATE_0",
+		{
+			available_to_all = true; available_to_NPCs = false; damage_probability = 0;
+		}
+	),
+	(
+		99, 10, "Duplex Fuel Tank (1/3)", "EQ_DUPLEX_FUEL_TANK_STATE_1", "DFT__STATE_1",
+		{
+			available_to_all = true; available_to_NPCs = false; damage_probability = 0;
+		}
+	),
+	(
+		99, 10, "Duplex Fuel Tank (2/3)", "EQ_DUPLEX_FUEL_TANK_STATE_2", "DFT__STATE_2",
+		{
+			available_to_all = true; available_to_NPCs = false; damage_probability = 0;
+		}
+	),
+	(
+		99, 10, "Duplex Fuel Tank (full)", "EQ_DUPLEX_FUEL_TANK_STATE_3", "DFT__STATE_3",
+		{
+			available_to_all = true; available_to_NPCs = false; damage_probability = 0;
+		}
+	)
+)

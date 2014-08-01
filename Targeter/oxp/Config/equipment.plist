@@ -1,0 +1,21 @@
+(
+	(
+		11, 31000, "Target System Upgrade",
+		"EQ_ENEMY_TARGETER_UPGRADE",
+		"Upgrade to the ships Target System that allows to cycle targeting between outlaw or neutral ships and cargoes on your scanner. It is a more expensive and complicated alternative for the Target System Memory Expansion.",
+		{
+			"available_to_all" = 1;
+			"script" = "target-system-upgrade-equipment.js";
+			"requires_equipment" = ("EQ_SCANNER_SHOW_MISSILE_TARGET","EQ_MULTI_TARGET");
+		}
+	),
+	(
+		11, 420, "Sell Target System Upgrade",
+		"EQ_ENEMY_TARGETER_UPGRADE_REMOVAL",
+		"Sell TSU. You get a 90% refund.",
+		{
+			"available_to_all" = 1;
+			"requires_equipment" = "EQ_ENEMY_TARGETER_UPGRADE";
+		}
+	)
+)

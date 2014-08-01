@@ -1,0 +1,19 @@
+(
+	(
+		9, 10000, "Cargo Scanner",
+		"EQ_CARGO_SCANNER",
+		"All cargo pods have an RFID chip that defines the content of cargo pods. All ships by Law must have a Cargo Reader which logs cargo pods in and out of the ship. This equipment is a long range RFID Scanner that uses a special scan to find out the content of the cargo containers.",
+		{
+			"available_to_all" = 1;
+		}
+	),
+	(
+		9, 150, "Sell Cargo Scanner",
+		"EQ_CARGO_SCANNER_REMOVER",
+		"Sell Cargo Scanner. You get a 60% refund.",
+		{
+			"available_to_all" = 1;
+			"requires_equipment" = "EQ_CARGO_SCANNER";
+		}
+	),
+)

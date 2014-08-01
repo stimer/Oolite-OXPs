@@ -1,0 +1,11 @@
+{
+"identifier" = "oolite.oxp.Frame.BountyScanner";
+"required_oolite_version" = "1.79";
+"title" = "Bounty Scanner";
+"version" = "3.0";
+"category" = "Equipment";
+"description" = "The Bounty Scanner is an add on piece of equipment for your vessel, next to the targeted ship name beside the target box the bounty will appear, if it has any bounty at all.";
+"author" = "Frame, timer";
+"information_url" = "http://wiki.alioth.net/index.php/Bounty_Scanner";
+"license" = "CC-BY-NC-SA 3.0";
+}
