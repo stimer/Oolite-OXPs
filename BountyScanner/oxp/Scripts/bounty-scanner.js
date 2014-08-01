@@ -6,47 +6,31 @@ this.name = 'Bounty Scanner';
 this._markRE = /( ?Bounty )([\d\.]+)( ₢)/;
 
 
-this.shipWillDockWithStation = function(station) {
-    this._stopTimer();
+this.shipWillDockWithStation = this.shipTargetLost = this.shipDied = function(station) {
+    this._stopPeriodicalCheck();
 };
 
 
-this.shipTargetLost = function(target) {
-    this._stopTimer();
-};
-
-
-this.shipDied = function() {
-    this._stopTimer();
-};
-
-
-this._stopTimer = function() {
-    if ( this._checkTimer && this._checkTimer.isRunning ) {
-        this._checkTimer.stop();
+this._stopPeriodicalCheck = function() {
+    if ( this._timer && this._timer.isRunning ) {
+        this._timer.stop();
     }
 };
 
 
-this._isEqOk = function() {
-    return player.ship.equipmentStatus('EQ_FRAME_BOUNTY_SCANNER') === 'EQUIPMENT_OK';
+this._startPeriodicalCheck = function(delay) {
+    if ( this._timer ) {
+        if ( ! this._timer.isRunning ) this._timer.start();
+    }
+    else {
+        this._timer = new Timer( this, this._scanAndUpdate, delay||0, 5 );
+    }
 };
 
 
 this.shipTargetAcquired = function(target) {
-    this._scanAndUpdate(target);
-    this._startTimer(5);
-};
-
-
-this._startTimer = function(delay) {
-    if ( ! this._isEqOk ) return;
-
-    if ( this._checkTimer ) {
-        if ( ! this._checkTimer.isRunning ) this._checkTimer.start();
-    }
-    else {
-        this._checkTimer = new Timer( this, this._scanAndUpdate, delay||0, 5 );
+    if ( this._scanAndUpdate(target) ) {
+        this._startPeriodicalCheck(5);
     }
 };
 
@@ -54,12 +38,15 @@ this._startTimer = function(delay) {
 this._scanAndUpdate = function(target) {
     target = target || player.ship.target;
 
-    if ( ! target || ! this._isEqOk() || player.ship.status === 'STATUS_DOCKED' ) {
-        this._stopTimer();
-        return;
-    }
+    if ( ! target
+         || player.ship.equipmentStatus('EQ_FRAME_BOUNTY_SCANNER') !== 'EQUIPMENT_OK'
+         || player.ship.status === 'STATUS_DOCKED'
+         || ! target.isShip
+         || target.isCargo ) {
 
-    if ( ! target.isShip || target.isCargo ) return;
+        this._stopPeriodicalCheck();
+        return false;
+    }
 
     var
     bounty  = this._getBounty(target),
@@ -81,6 +68,10 @@ this._scanAndUpdate = function(target) {
     else if (hasMark) {
         target.shipUniqueName = srcName.replace( this._markRE, '' );
     }
+
+    if ( target.scanClass === 'CLASS_ROCK' ) return false;
+
+    return true;
 };
 
 
@@ -89,7 +80,7 @@ this._getBounty = function(ship) {
     bounty = ship.bounty,
     sc = ship.scanClass;
 
-    return sc == 'CLASS_BUOY' || sc == 'CLASS_ROCK'
+    return sc === 'CLASS_BUOY' || sc === 'CLASS_ROCK'
         ? bounty / 10
         : bounty;
 };
@@ -97,7 +88,7 @@ this._getBounty = function(ship) {
 
 this.playerBoughtEquipment = function(equipment) {
     if ( equipment === 'EQ_FRAME_BOUNTY_SCANNER_REMOVER' ) {
-        this._stopTimer();
+        this._stopPeriodicalCheck();
         player.ship.removeEquipment('EQ_FRAME_BOUNTY_SCANNER_REMOVER');
         player.ship.removeEquipment('EQ_FRAME_BOUNTY_SCANNER');
         player.credits += ( EquipmentInfo.infoForKey('EQ_FRAME_BOUNTY_SCANNER').price * 0.06 );
