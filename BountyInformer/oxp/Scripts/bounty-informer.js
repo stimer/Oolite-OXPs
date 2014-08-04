@@ -1,12 +1,22 @@
 'use strict';
 
-this.name = 'Bounty Scanner';
+this.name = 'Bounty Informer';
 
-
+this._disabled = false;
 this._markRE = /( ?Bounty )([\d\.]+)( ₢)/;
 
 
+this._disable = function() {
+    this._disabled = true;
+};
+
+this._enable = function() {
+    this._disabled = false;
+};
+
+
 this.shipWillDockWithStation = this.shipTargetLost = this.shipDied = function(station) {
+    if ( this._disabled ) return;
     this._stopPeriodicalCheck();
 };
 
@@ -29,6 +39,7 @@ this._startPeriodicalCheck = function(delay) {
 
 
 this.shipTargetAcquired = function(target) {
+    if ( this._disabled ) return;
     if ( this._scanAndUpdate(target) ) {
         this._startPeriodicalCheck(5);
     }
@@ -38,8 +49,8 @@ this.shipTargetAcquired = function(target) {
 this._scanAndUpdate = function(target) {
     target = target || player.ship.target;
 
-    if ( ! target
-         || player.ship.equipmentStatus('EQ_FRAME_BOUNTY_SCANNER') !== 'EQUIPMENT_OK'
+    if ( ! target || this._disabled
+         || player.ship.equipmentStatus('EQ_BOUNTY_INFORMER') !== 'EQUIPMENT_OK'
          || player.ship.status === 'STATUS_DOCKED'
          || ! target.isShip
          || target.isCargo ) {
@@ -87,10 +98,16 @@ this._getBounty = function(ship) {
 
 
 this.playerBoughtEquipment = function(equipment) {
-    if ( equipment === 'EQ_FRAME_BOUNTY_SCANNER_REMOVER' ) {
+    if ( equipment === 'EQ_BOUNTY_INFORMER_REMOVER' ) {
         this._stopPeriodicalCheck();
-        player.ship.removeEquipment('EQ_FRAME_BOUNTY_SCANNER_REMOVER');
+        player.ship.removeEquipment('EQ_BOUNTY_INFORMER_REMOVER');
+        player.ship.removeEquipment('EQ_BOUNTY_INFORMER');
+        player.credits += ( EquipmentInfo.infoForKey('EQ_BOUNTY_INFORMER').price * 0.06 );
+    }
+    // Unfortunately, it is necessary to interact with original "Bounty Scanner"
+    else if ( equipment === 'EQ_BOUNTY_SCANNER_REPLACER' ) {
+        player.ship.removeEquipment('EQ_BOUNTY_SCANNER_REPLACER');
         player.ship.removeEquipment('EQ_FRAME_BOUNTY_SCANNER');
-        player.credits += ( EquipmentInfo.infoForKey('EQ_FRAME_BOUNTY_SCANNER').price * 0.06 );
+        player.ship.awardEquipment('EQ_BOUNTY_INFORMER');
     }
 };
