@@ -5,7 +5,7 @@
 "version" = "1.0";
 "category" = "Equipment";
 "description" = "This device gives you access to the bounty registry of police criminal database.";
-"author" = "timer";
+"author" = "Andrey Belov aka timer";
 "information_url" = "http://wiki.alioth.net/index.php/Bounty_Informer_OXP";
 "license" = "CC-BY-NC-SA 3.0";
 }

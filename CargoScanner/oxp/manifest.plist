@@ -5,7 +5,7 @@
 "version" = "1.11";
 "category" = "Equipment";
 "description" = "This equipment uses a special scan to find out the content of the cargo containers.";
-"author" = "Okti";
+"author" = "Okti, timer";
 "information_url" = "http://wiki.alioth.net/index.php/Cargo_Scanner_OXP";
 "license" = "CC-BY-NC-SA 3.0";
 }

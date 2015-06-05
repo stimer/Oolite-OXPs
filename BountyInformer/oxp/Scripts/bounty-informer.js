@@ -104,10 +104,4 @@ this.playerBoughtEquipment = function(equipment) {
         player.ship.removeEquipment('EQ_BOUNTY_INFORMER');
         player.credits += ( EquipmentInfo.infoForKey('EQ_BOUNTY_INFORMER').price * 0.06 );
     }
-    // Unfortunately, it is necessary to interact with original "Bounty Scanner"
-    else if ( equipment === 'EQ_BOUNTY_SCANNER_REPLACER' ) {
-        player.ship.removeEquipment('EQ_BOUNTY_SCANNER_REPLACER');
-        player.ship.removeEquipment('EQ_FRAME_BOUNTY_SCANNER');
-        player.ship.awardEquipment('EQ_BOUNTY_INFORMER');
-    }
 };

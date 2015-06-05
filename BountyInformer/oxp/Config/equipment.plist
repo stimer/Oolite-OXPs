@@ -17,15 +17,5 @@
                         available_to_all = 1;
                         requires_equipment = "EQ_BOUNTY_INFORMER";
                 }
-        ),
-        (
-                0, 10, "Replace Bounty Scanner on Bounty Informer",
-                "EQ_BOUNTY_SCANNER_REPLACER",
-                "Replace the Bounty Scanner on the Bounty Informer.",
-                {
-                        available_to_all = 1;
-                        requires_equipment = ("EQ_FRAME_BOUNTY_SCANNER","EQ_SCANNER_SHOW_MISSILE_TARGET");
-                        incompatible_with_equipment = "EQ_BOUNTY_INFORMER";
-                }
         )
 )
