@@ -2,10 +2,10 @@
 "identifier" = "oolite.oxp.AndreyBelov.DuplexFuelTank";
 "required_oolite_version" = "1.79";
 "title" = "Duplex Fuel Tank";
-"version" = "0.5";
+"version" = "0.51";
 "category" = "Equipment";
 "description" = "Additional fuel tank (3LY) with duplex interaction with main tank. Improved technology allows not only to pump the fuel in the main tank, but also to make the opposite action, for example, in/after skimming process.";
-"author" = "Andrey Belov";
+"author" = "Andrey Belov aka timer";
 "information_url" = "http://wiki.alioth.net/index.php/DuplexFuelTank_OXP";
 "license" = "CC-BY-NC-SA 3.0";
 }

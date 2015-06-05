@@ -6,7 +6,7 @@
 		{
 			available_to_all     = true;
 			available_to_NPCs    = false;
-		    visible              = false;
+                        visible              = false;
 			requires_cargo_space = 8;
 			damage_probability   = 0;
 			requires_equipment   = "EQ_FUEL_SCOOPS";
@@ -35,7 +35,7 @@
 		}
 	),
 	( /* DFT Controller - instance of prime equipment */
-		99, 10, "DFT",
+		1, 10, "DFT",
 		"EQ_DUPLEX_FUEL_TANK_CTRL",
 		"DFT_CTRL",
 		{
@@ -44,33 +44,34 @@
 			visible            = false;
 			script             = "eq_duplex_fuel_tank.js";
 			damage_probability = 0;
+			condition_script   = "duplex_fuel_tank.js";
 		}
 	),
 
 	/* DFT states */
 
 	( /* Empty DFT */
-		99, 10, "Duplex Fuel Tank (empty)", "EQ_DUPLEX_FUEL_TANK_STATE_0", "DFT__STATE_0",
+		1, 10, "Duplex Fuel Tank (empty)", "EQ_DUPLEX_FUEL_TANK_STATE_0", "DFT__STATE_0",
 		{
-			available_to_all = true; available_to_NPCs = false; damage_probability = 0;
+			available_to_all = true; available_to_NPCs = false; damage_probability = 0; condition_script = "duplex_fuel_tank.js";
 		}
 	),
 	(
-		99, 10, "Duplex Fuel Tank (1/3)", "EQ_DUPLEX_FUEL_TANK_STATE_1", "DFT__STATE_1",
+		1, 10, "Duplex Fuel Tank (1/3)", "EQ_DUPLEX_FUEL_TANK_STATE_1", "DFT__STATE_1",
 		{
-			available_to_all = true; available_to_NPCs = false; damage_probability = 0;
+			available_to_all = true; available_to_NPCs = false; damage_probability = 0; condition_script = "duplex_fuel_tank.js";
 		}
 	),
 	(
-		99, 10, "Duplex Fuel Tank (2/3)", "EQ_DUPLEX_FUEL_TANK_STATE_2", "DFT__STATE_2",
+		1, 10, "Duplex Fuel Tank (2/3)", "EQ_DUPLEX_FUEL_TANK_STATE_2", "DFT__STATE_2",
 		{
-			available_to_all = true; available_to_NPCs = false; damage_probability = 0;
+			available_to_all = true; available_to_NPCs = false; damage_probability = 0; condition_script = "duplex_fuel_tank.js";
 		}
 	),
 	(
-		99, 10, "Duplex Fuel Tank (full)", "EQ_DUPLEX_FUEL_TANK_STATE_3", "DFT__STATE_3",
+		1, 10, "Duplex Fuel Tank (full)", "EQ_DUPLEX_FUEL_TANK_STATE_3", "DFT__STATE_3",
 		{
-			available_to_all = true; available_to_NPCs = false; damage_probability = 0;
+			available_to_all = true; available_to_NPCs = false; damage_probability = 0; condition_script = "duplex_fuel_tank.js";
 		}
 	)
 )

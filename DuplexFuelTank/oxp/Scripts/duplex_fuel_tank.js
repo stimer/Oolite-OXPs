@@ -1,9 +1,9 @@
 this.name        = 'duplex_fuel_tank';
 this.author      = 'Andrey Belov';
-this.copyright   = '© 2013 Andrey Belov aka timer [ TiNe Corp. ]';
+this.copyright   = '© 2015 Andrey Belov aka timer [ TiNe Corp. ]';
 this.licence     = 'CC BY-NC-SA 3.0'; // see http://creativecommons.org/licenses/by-nc-sa/3.0/ for more info.
 this.description = 'Additional fuel tank with duplex interaction with main tank.';
-this.version     = '0.5';
+this.version     = '0.51';
 
 
 this._max_fuel      = 3;
@@ -114,7 +114,7 @@ this.get_current_state = function() {
 	return 0;
 };
 
-// special for Smivs ;)
+// Special for Smivs ;)
 this.$dftSabotage = function() {
 	if ( player.ship.equipmentStatus('EQ_DUPLEX_FUEL_TANK') === 'EQUIPMENT_OK' ) {
 		var cs = this.get_current_state();
@@ -124,4 +124,10 @@ this.$dftSabotage = function() {
 			player.consoleMessage('DFT malfunction: fuel leak!', 3);
 		}
 	}
+};
+
+// Condition scripting method (Thanks Smivs again)
+this.allowAwardEquipment = function( equipment, ship, context ) {
+    // Can't buy service equipment - only scripting operations
+    return !!(context == 'scripted');
 };
