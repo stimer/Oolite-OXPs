@@ -2,7 +2,7 @@
 "identifier" = "oolite.oxp.Okti.CargoScanner";
 "required_oolite_version" = "1.79";
 "title" = "Cargo Scanner";
-"version" = "1.11";
+"version" = "1.12";
 "category" = "Equipment";
 "description" = "This equipment uses a special scan to find out the content of the cargo containers.";
 "author" = "Okti, timer";

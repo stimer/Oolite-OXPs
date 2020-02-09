@@ -3,20 +3,19 @@
 this.name = 'Cargo Scanner';
 
 this.shipTargetAcquired = function(target) {
-    if ( ! target.isCargo || target.isPiloted
+    if ( ! target.isShip || ! target.isCargo || target.shipUniqueName || target.isPiloted
          || player.ship.equipmentStatus('EQ_CARGO_SCANNER') !== 'EQUIPMENT_OK' ) {
         return;
     }
 
-    if ( target.commodity !== 'goods' ) {
-        if ( ! target.shipUniqueName ) {
-            var ca = +target.commodityAmount;
-            target.shipUniqueName = displayNameForCommodity( target.commodity )
-                    + ( ca === 1 ? '' : ' ['+ca+']' );
-        }
+    var tc = target.commodity;
+    if ( tc && tc !== 'goods' ) {
+        var ca = +target.commodityAmount;
+        target.shipUniqueName = displayNameForCommodity(tc)
+                + ( ca === 1 ? '' : ' ['+ca+']' );
     }
     else {
-        target.shipUniqueName = 'Unknown/Broken RFID';
+        target.shipUniqueName = 'Unknown';
     }
 };
 
