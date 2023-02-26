@@ -6,7 +6,7 @@
 		{
 			available_to_all     = true;
 			available_to_NPCs    = false;
-                        visible              = false;
+			visible              = false;
 			requires_cargo_space = 8;
 			damage_probability   = 0;
 			requires_equipment   = "EQ_FUEL_SCOOPS";
