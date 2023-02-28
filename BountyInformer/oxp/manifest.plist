@@ -1,8 +1,8 @@
 {
 "identifier" = "oolite.oxp.AndreyBelov.BountyInformer";
-"required_oolite_version" = "1.79";
+"required_oolite_version" = "1.81";
 "title" = "Bounty Informer";
-"version" = "1.0";
+"version" = "2.0";
 "category" = "Equipment";
 "description" = "This device gives you access to the bounty registry of police criminal database.";
 "author" = "Andrey Belov aka timer";

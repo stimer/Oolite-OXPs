@@ -15,20 +15,20 @@ this._setPreviousTargetNum = function(num) {
 };
 
 this._getPreviousTargetNum = function() {
-	return this._previousTargetNum;
+    return this._previousTargetNum;
 };
 
 // sell 'Target System Upgrade'
 this.playerBoughtEquipment = function(equipmentKey) {
-	if ( equipmentKey === 'EQ_ENEMY_TARGETER_UPGRADE_REMOVAL') {
-		player.ship.removeEquipment('EQ_ENEMY_TARGETER_UPGRADE');
-		player.ship.removeEquipment('EQ_ENEMY_TARGETER_UPGRADE_REMOVAL');
-		player.credits += ( EquipmentInfo.infoForKey('EQ_ENEMY_TARGETER_UPGRADE').price * 0.09 );
-	}
+    if ( equipmentKey === 'EQ_ENEMY_TARGETER_UPGRADE_REMOVAL') {
+        player.ship.removeEquipment('EQ_ENEMY_TARGETER_UPGRADE');
+        player.ship.removeEquipment('EQ_ENEMY_TARGETER_UPGRADE_REMOVAL');
+        player.credits += ( EquipmentInfo.infoForKey('EQ_ENEMY_TARGETER_UPGRADE').price * 0.09 );
+    }
 };
 
 this.equipmentDamaged = function(equipment) {
-	if ( equipment === 'EQ_ENEMY_TARGETER_UPGRADE' ) {
-		player.consoleMessage('Target System Upgrade is damaged!');
-	}
+    if ( equipment === 'EQ_ENEMY_TARGETER_UPGRADE' ) {
+        player.consoleMessage('Target System Upgrade is damaged!');
+    }
 };

@@ -1,21 +1,21 @@
 (
-        (
-                9, 18500, "Bounty Informer",
-                "EQ_BOUNTY_INFORMER",
-                "This device gives you access to the bounty registry of police criminal database.",
-                {
-                        available_to_all = 1;
-                        requires_equipment = ("EQ_SCANNER_SHOW_MISSILE_TARGET");
-                        incompatible_with_equipment = "EQ_FRAME_BOUNTY_SCANNER";
-                }
-        ),
-        (
-                9, 150, "Sell Bounty Informer",
-                "EQ_BOUNTY_INFORMER_REMOVER",
-                "Sell Bounty Informer. You get a 60% refund.",
-                {
-                        available_to_all = 1;
-                        requires_equipment = "EQ_BOUNTY_INFORMER";
-                }
-        )
+    (
+        9, 18500, "Bounty Informer",
+        "EQ_BOUNTY_INFORMER",
+        "This device gives you access to the bounty registry of police criminal database.",
+        {
+            available_to_all = 1;
+            requires_equipment = ("EQ_SCANNER_SHOW_MISSILE_TARGET");
+            incompatible_with_equipment = "EQ_FRAME_BOUNTY_SCANNER";
+        }
+    ),
+    (
+        9, 150, "Sell Bounty Informer",
+        "EQ_BOUNTY_INFORMER_REMOVER",
+        "Sell Bounty Informer. You get a 60% refund.",
+        {
+            available_to_all = 1;
+            requires_equipment = "EQ_BOUNTY_INFORMER";
+        }
+    )
 )

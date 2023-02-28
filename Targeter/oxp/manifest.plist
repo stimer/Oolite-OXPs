@@ -2,7 +2,7 @@
 "identifier" = "oolite.oxp.AndreyBelov.Targeter";
 "required_oolite_version" = "1.79";
 "title" = "Target System Upgrade";
-"version" = "0.72";
+"version" = "0.73";
 "category" = "Equipment";
 "description" = "Upgrade to the ships Target System that allows to cycle targeting between outlaw or neutral ships and cargoes on your scanner.";
 "author" = "Andrey Belov aka timer";

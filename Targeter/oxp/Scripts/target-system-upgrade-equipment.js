@@ -95,7 +95,7 @@ this._getOutlawShips = function() {
         return [];
     }
     return this._filterEntities(
-        function(e) { return ( e.scanClass === 'CLASS_NEUTRAL' && e.bounty !== 0 ); }
+        function(e) { return ( (e.scanClass === 'CLASS_NEUTRAL' && e.bounty !== 0) || e.scanClass === 'CLASS_THARGOID' ); }
     );
 };
 
@@ -104,7 +104,6 @@ this._getNeutralShips = function() {
         return [];
     }
     return this._filterEntities(
-//        function(e) { return ( e.scanClass === 'CLASS_NEUTRAL' && e.bounty === 0 && e.target !== player.ship ); }
         function(e) { return ( e.scanClass === 'CLASS_NEUTRAL' && e.bounty === 0 ); }
     );
 };
